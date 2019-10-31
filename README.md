@@ -27,7 +27,7 @@ This is a restatement of the [notice published](https://docs.aws.amazon.com/stre
   * Reduced logging noise for aggregated records landing on an unexpected shard
 * [PR #276] Updated AWS SDK from 1.0.5 to 1.7.180
 * [PR #275] Improved the sample code to avoid need to edit code to run.
-* [PR #274] Updated bootstrap.sh to build all dependancies and pack binaries into the jar.
+* [PR #274] Updated bootstrap.sh to build all dependencies and pack binaries into the jar.
 * [PR #273] Added compile flags to enable compiling aws-sdk-cpp with Gcc7.
 * [PR #229] Fixed bootstrap.sh to download dependent libraries directly from source.
 * [PR #246] [PR #264] Various Typos
