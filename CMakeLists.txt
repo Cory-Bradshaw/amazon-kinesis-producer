@@ -142,10 +142,10 @@ if(LINUX)
     #
     # Ensure that we have to the dynamic loader
     #
-    check_library_exists(dl dlopen "" HAVE_DL_OPEN)
-    if (NOT HAVE_DL_OPEN)
-        message(FATAL_ERROR "dl_open not found")
-    endif(NOT HAVE_DL_OPEN)
+    #check_library_exists(dl dlopen "" HAVE_DL_OPEN)
+    #if (NOT HAVE_DL_OPEN)
+    #    message(FATAL_ERROR "dl_open not found")
+    #endif(NOT HAVE_DL_OPEN)
     set(LIBDL_LIBRARIES dl)
 
     #
