@@ -133,7 +133,7 @@ if(LINUX)
     #
     # Ensure that librt is abailable
     #
-    check_library_exists(rt clock_gettime "" HAVE_CLOCK_GETTIME )
+    check_library_exists(rt clock_gettime "time.h" HAVE_CLOCK_GETTIME )
     if(NOT HAVE_CLOCK_GETTIME)
         message(FATAL_ERROR "clock_gettime not found")
     endif(NOT HAVE_CLOCK_GETTIME)
