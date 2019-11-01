@@ -133,19 +133,19 @@ if(LINUX)
     #
     # Ensure that librt is abailable
     #
-    #check_library_exists(rt clock_gettime "" HAVE_CLOCK_GETTIME )
-    #if(NOT HAVE_CLOCK_GETTIME)
-    #    message(FATAL_ERROR "clock_gettime not found")
-    #endif(NOT HAVE_CLOCK_GETTIME)
+    check_library_exists(rt clock_gettime "" HAVE_CLOCK_GETTIME )
+    if(NOT HAVE_CLOCK_GETTIME)
+        message(FATAL_ERROR "clock_gettime not found")
+    endif(NOT HAVE_CLOCK_GETTIME)
     set(LIBRT_LIBRARIES rt)
 
     #
     # Ensure that we have to the dynamic loader
     #
-    #check_library_exists(dl dlopen "" HAVE_DL_OPEN)
-    #if (NOT HAVE_DL_OPEN)
-    #    message(FATAL_ERROR "dl_open not found")
-    #endif(NOT HAVE_DL_OPEN)
+    check_library_exists(dl dlopen "" HAVE_DL_OPEN)
+    if (NOT HAVE_DL_OPEN)
+        message(FATAL_ERROR "dl_open not found")
+    endif(NOT HAVE_DL_OPEN)
     set(LIBDL_LIBRARIES dl)
 
     #
