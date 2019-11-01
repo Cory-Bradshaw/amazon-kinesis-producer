@@ -3,6 +3,9 @@ project(amazon_kinesis_producer)
 
 set(THIRD_PARTY_LIB_DIR "${amazon_kinesis_producer_SOURCE_DIR}/third_party/lib")
 
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -include force_link_glibc_2.9.h")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -include force_link_glibc_2.9.h")
+
 if(CMAKE_COMPILER_IS_GNUCXX)
     set(ADDL_LINK_CONFIG "-static-libstdc++")
     add_compile_options("-fpermissive")
@@ -19,9 +22,6 @@ endif(CMAKE_BUILD_TYPE MATCHES Debug)
 if(APPLE)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mmacosx-version-min=10.9")
 endif()
-
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -include force_link_glibc_2.9.h")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -include force_link_glibc_2.9.h")
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
