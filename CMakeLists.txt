@@ -20,6 +20,9 @@ if(APPLE)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mmacosx-version-min=10.9")
 endif()
 
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -include force_link_glibc_2.9.h")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -include force_link_glibc_2.9.h")
+
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXE_LINKER_FLAGS "-L${THIRD_PARTY_LIB_DIR} ${ADDL_LINK_CONFIG}")
