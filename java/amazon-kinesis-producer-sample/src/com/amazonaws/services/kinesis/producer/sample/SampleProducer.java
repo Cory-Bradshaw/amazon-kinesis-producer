@@ -76,7 +76,7 @@ public class SampleProducer {
     /**
      * Change these to try larger or smaller records.
      */
-    private static final int DATA_SIZE = 128;
+    private static final int DATA_SIZE = 512;git
     
     /**
      * Put records for this number of seconds before exiting.
@@ -96,7 +96,7 @@ public class SampleProducer {
      * 
      * @see {@link KinesisProducerConfiguration#setRecordTtl(long)}
      */
-    private static final int RECORDS_PER_SECOND = 2000;
+    private static final int RECORDS_PER_SECOND = 20000;
     
     /**
      * Change this to your stream name.
@@ -172,6 +172,14 @@ public class SampleProducer {
         // Note that if you do pass a Configuration instance, mutating that
         // instance after initializing KinesisProducer has no effect. We do not
         // support dynamic re-configuration at the moment.
+
+        config.setRecordMaxBufferedTime(100);
+        config.setMaxConnections(24);
+        // XXX: Sayantan's config
+        config.setMetricsLevel("none");
+        config.setThreadingModel("POOLED");
+        config.setThreadPoolSize(128);
+        config.setRequestTimeout(5000);
         KinesisProducer producer = new KinesisProducer(config);
         
         return producer;
