@@ -76,8 +76,8 @@ public class SampleProducer {
     /**
      * Change these to try larger or smaller records.
      */
-    private static final int DATA_SIZE = 512;git
-    
+    private static final int DATA_SIZE = 512;
+
     /**
      * Put records for this number of seconds before exiting.
      */
