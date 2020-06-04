@@ -40,6 +40,13 @@ to_sdk_metric_datum(const std::shared_ptr<Metric> m, int numBuckets) {
   ss.SetMinimum(a.min(numBuckets));
   ss.SetMaximum(a.max(numBuckets));
   ss.SetSampleCount(a.count(numBuckets));
+  if(a.min(numBuckets) >= a.max(numBuckets)) {
+  LOG(error) << "Metrics invalid. Min is not greater than Max.| Sum:" << a.sum(numBuckets)
+                           << "| Min:" << a.min(numBuckets)
+                           << "| Max: " << a.max(numBuckets)
+                           << "| Count:" << a.count(numBuckets)
+                           << req.SerializePayload();
+  }
 
   Aws::CloudWatch::Model::MetricDatum d;
   d.SetStatisticValues(std::move(ss));
